@@ -2,22 +2,22 @@ import React from "react";
 import "./App.css";
 
 const CustomLoader = () => (
-<div class="main_container">
-    <span class="loader"></span>
-    <div class="wording">
-	<div class="letter">G</div>
-	<div class="letter">e</div>
-	<div class="letter">n</div>
-	<div class="letter">e</div>
-	<div class="letter">r</div>
-	<div class="letter">a</div>
-	<div class="letter">t</div>
-	<div class="letter">i</div>
-	<div class="letter">n</div>
-	<div class="letter">g</div>
-	<div class="letter circle"></div>
-	<div class="letter circle"></div>
-	<div class="letter circle"></div>
+<div className="main_container">
+    <span className="loader"></span>
+    <div className="wording">
+	<div className="letter">G</div>
+	<div className="letter">e</div>
+	<div className="letter">n</div>
+	<div className="letter">e</div>
+	<div className="letter">r</div>
+	<div className="letter">a</div>
+	<div className="letter">t</div>
+	<div className="letter">i</div>
+	<div className="letter">n</div>
+	<div className="letter">g</div>
+	<div className="letter circle"></div>
+	<div className="letter circle"></div>
+	<div className="letter circle"></div>
 	</div>
   </div>
 );

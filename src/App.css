@@ -164,9 +164,13 @@ h1:hover {
 label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 500px;
 }
 
+h2{
+  margin: 5px;
+  font-size: 20px;
+}
 /* Set the width, padding, border, border-radius, and font-size for the input and textarea elements */
 input,
 textarea {
@@ -483,191 +487,6 @@ textarea {
   text-align: left;
 }
 
-.pencil {
-  display: block;
-  width: 10em;
-  height: 10em;
-}
-
-.pencil__body1,
-.pencil__body2,
-.pencil__body3,
-.pencil__eraser,
-.pencil__eraser-skew,
-.pencil__point,
-.pencil__rotate,
-.pencil__stroke {
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.pencil__body1,
-.pencil__body2,
-.pencil__body3 {
-  transform: rotate(-90deg);
-}
-
-.pencil__body1 {
-  animation-name: pencilBody1;
-}
-
-.pencil__body2 {
-  animation-name: pencilBody2;
-}
-
-.pencil__body3 {
-  animation-name: pencilBody3;
-}
-
-.pencil__eraser {
-  animation-name: pencilEraser;
-  transform: rotate(-90deg) translate(49px,0);
-}
-
-.pencil__eraser-skew {
-  animation-name: pencilEraserSkew;
-  animation-timing-function: ease-in-out;
-}
-
-.pencil__point {
-  animation-name: pencilPoint;
-  transform: rotate(-90deg) translate(49px,-30px);
-}
-
-.pencil__rotate {
-  animation-name: pencilRotate;
-}
-
-.pencil__stroke {
-  animation-name: pencilStroke;
-  transform: translate(100px,100px) rotate(-113deg);
-}
-
-/* Animations */
-@keyframes pencilBody1 {
-  from,
-	to {
-    stroke-dashoffset: 351.86;
-    transform: rotate(-90deg);
-  }
-
-  50% {
-    stroke-dashoffset: 150.8;
- /* 3/8 of diameter */
-    transform: rotate(-225deg);
-  }
-}
-
-@keyframes pencilBody2 {
-  from,
-	to {
-    stroke-dashoffset: 406.84;
-    transform: rotate(-90deg);
-  }
-
-  50% {
-    stroke-dashoffset: 174.36;
-    transform: rotate(-225deg);
-  }
-}
-
-@keyframes pencilBody3 {
-  from,
-	to {
-    stroke-dashoffset: 296.88;
-    transform: rotate(-90deg);
-  }
-
-  50% {
-    stroke-dashoffset: 127.23;
-    transform: rotate(-225deg);
-  }
-}
-
-@keyframes pencilEraser {
-  from,
-	to {
-    transform: rotate(-45deg) translate(49px,0);
-  }
-
-  50% {
-    transform: rotate(0deg) translate(49px,0);
-  }
-}
-
-@keyframes pencilEraserSkew {
-  from,
-	32.5%,
-	67.5%,
-	to {
-    transform: skewX(0);
-  }
-
-  35%,
-	65% {
-    transform: skewX(-4deg);
-  }
-
-  37.5%, 
-	62.5% {
-    transform: skewX(8deg);
-  }
-
-  40%,
-	45%,
-	50%,
-	55%,
-	60% {
-    transform: skewX(-15deg);
-  }
-
-  42.5%,
-	47.5%,
-	52.5%,
-	57.5% {
-    transform: skewX(15deg);
-  }
-}
-
-@keyframes pencilPoint {
-  from,
-	to {
-    transform: rotate(-90deg) translate(49px,-30px);
-  }
-
-  50% {
-    transform: rotate(-225deg) translate(49px,-30px);
-  }
-}
-
-@keyframes pencilRotate {
-  from {
-    transform: translate(100px,100px) rotate(0);
-  }
-
-  to {
-    transform: translate(100px,100px) rotate(720deg);
-  }
-}
-
-@keyframes pencilStroke {
-  from {
-    stroke-dashoffset: 439.82;
-    transform: translate(100px,100px) rotate(-113deg);
-  }
-
-  50% {
-    stroke-dashoffset: 164.93;
-    transform: translate(100px,100px) rotate(-113deg);
-  }
-
-  75%,
-	to {
-    stroke-dashoffset: 439.82;
-    transform: translate(100px,100px) rotate(112deg);
-  }
-}
 
 .analysis-result {
   font-size: 16px;
@@ -696,4 +515,146 @@ textarea {
 .copy-icon {
   font-size: 16px;
   color: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: light dark;
+  --color-light-background: hsl(0, 0%, 90%);
+  --color-light-text: hsl(0, 0%, 20%);
+  --color-dark-background: hsl(0, 0%, 20%);
+  --color-dark-text: hsl(0, 0%, 90%);
+  --color-brand: hsl(120, 100%, 27%);
+  --font-mobile-family: "Roboto", sans-serif;
+  --font-desktop-family: "Poppins", sans-serif;
+}
+
+.main_container {
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden; /* Hide horizontal scroll bar */
+  overflow-y: hidden;
+}
+
+
+.loader {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50px;
+  height: 80px;
+  border-top: 5px solid #fff;
+  border-bottom: 5px solid #fff;
+  position: relative;
+  background: linear-gradient(var(--color-brand) 30px, transparent 0) no-repeat;
+  background-size: 2px 40px;
+  background-position: 50% 0px;
+  animation: spinx 5s linear infinite;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  width: 40px;
+  left: 50%;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  transform: translatex(-50%);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  animation: lqt 5s linear infinite;
+}
+
+.loader:after {
+  top: auto;
+  bottom: 0;
+  border-radius: 20px 20px 0 0;
+  animation: lqb 5s linear infinite;
+}
+
+@keyframes lqt {
+  0%,
+  100% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0% 0px;
+  }
+
+  50% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0% 40px;
+  }
+
+  50.1% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0% -40px;
+  }
+}
+
+@keyframes lqb {
+  0% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0 40px;
+  }
+
+  100% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0 -40px;
+  }
+}
+
+@keyframes spinx {
+  0%,
+  49% {
+    transform: rotate(0deg);
+    background-position: 50% 36px;
+  }
+
+  51%,
+  98% {
+    transform: rotate(180deg);
+    background-position: 50% 4px;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    background-position: 50% 36px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 1.1rem;
+   
+  }
+}
+
+@media screen and (min-width: 801px) {
+  html {
+    font-size: 1.1rem;
+  
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: var(--color-light-background);
+    color: var(--color-light-text);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--color-dark-background);
+    color: var(--color-dark-text);
+  }
 }

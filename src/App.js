@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import "./App.css"; // or './App.scss' if using SCSS
 import { Link } from "react-router-dom";
 import Orb from "./orb";
+import Typing from "./Typing";
 
 function App({ fields, setFields }) {
   const [record, setRecord] = useState(false);
@@ -140,6 +141,7 @@ function App({ fields, setFields }) {
             <Orb />
           </div>
         )}
+        <Typing/>
       </div>
       <div className="main-content">
         <div className="fields-section">

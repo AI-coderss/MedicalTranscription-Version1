@@ -19,7 +19,7 @@
   --primary-color: #39cccc;
   --primary-color2: #39cccc;
   --secondary-color: #39cccc;
-  --background-color: #1a1a1a;
+  --background-color: #001;
   --background-color2: #050505;
   --text-color: #fff;
   --button-bg: #39cccc;
@@ -79,12 +79,14 @@ flex direction, align items, justify content, overflow-y, and margin */
   left: 0;
   z-index: 1000;
 }
-
+.sidebar h1{
+  font-size: large;
+}
 .title-section h1 {
   margin: 0;
   color: var(--text-color);
   align-items: center;
-  font-size: .5em; /* Smaller font size */
+  font-size: 15em; /* Smaller font size */
 }
 
 /* Content Section */
@@ -157,6 +159,7 @@ flex direction, align items, justify content, overflow-y, and margin */
   align-items: center;
   justify-content: flex-start;
   margin: 0;
+  
 }
 
 /* Set the margin, padding, font-size, cursor, background color, color, border, and border radius for the record-buttons button elements */
@@ -197,10 +200,7 @@ flex direction, align items, justify content, overflow-y, and margin */
   border-radius: 5px;
 }
 
-/* Set the font-size for the h1 elements */
-h1 {
-  font-size: 20px;
-}
+
 
 /* Set the background color for the button elements on hover */
 button:hover {
@@ -319,6 +319,9 @@ textarea {
     padding: 8px 16px;
     font-size: 14px;
   }
+  .sidebar h1{
+    font-size:large;
+  }
 }
 
 @media (max-width: 992px) {
@@ -330,7 +333,9 @@ textarea {
     width: 100%;
     margin-bottom: 20px;
   }
-
+  .sidebar h1{
+    font-size:large;
+  }
   .main-content {
     padding: 15px;
   }
@@ -369,7 +374,7 @@ textarea {
     height: 80px;
   }
  .title-section h1{
-  font-size: small;
+  font-size: 45px;
  }
   button {
     margin: 20px;
@@ -727,13 +732,42 @@ textarea {
     background-position: 50% 36px;
   }
 }
+/*The Typing Effect Styles*/
+/* App.css */
+
+.sentence {
+  color: var(--primary-color);
+  margin-top: 48px;
+  font-size: 1.3em;
+  position: relative;
+}
+
+.cursor {
+  content: '';
+  position: absolute;
+  right: -20px;
+  bottom: 6px;
+  width: 14px;
+  height: 0.8px;
+  background-color: var(--primary-color);
+  animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 @media screen and (max-width: 800px) {
   html {
     font-size: 1rem;
    
   }
-  h1{
+  .content h1{
     font-size: 0.5em;
   }
 }

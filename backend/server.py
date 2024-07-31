@@ -16,9 +16,8 @@ CORS(app, origins=["http://localhost:3000"])
 
 def get_response(user_query):
     template = """
-
     You are a doctor AI assistant. Your main task is to provide medical diagnosis, recommend lab tests and investigations,
-      and prescribe the appropriate drugs based on the user's input reply in English only.
+    and prescribe the appropriate drugs based on the user's input reply in English only.
     User's input: {user_query}
     Based on the user's input, provide a helpful and detailed response your answers must be always in English only in English regardless of the user's input language.
     follow the following format :
@@ -29,9 +28,7 @@ def get_response(user_query):
     Recommendations to The Doctor: recommend the doctor with regards to case what they supposed to do ?
     Treatment plan : set the appropriate treatment plan for the doctor including the steps to treat the Patient
     Please stricly adhere to the above format wherever asked , be more specific and detailed in your answers 
-
     """
-
     prompt = ChatPromptTemplate.from_template(template)
     llm = ChatOpenAI(model="gpt-4o")
     chain = prompt | llm | StrOutputParser()

@@ -4,13 +4,16 @@ from dotenv import load_dotenv
 import openai
 import os
 import tempfile
+import werkzeug
 
+# Load environment variables
 load_dotenv()
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000"])
 openai.api_key = os.getenv("OPENAI_API_KEY")
 client = openai
 
+# Define the function to transcribe speech to text
 def speech_to_text(audio_data_path):
     with open(audio_data_path, "rb") as audio_file:
         transcript = client.audio.transcriptions.create(
@@ -20,6 +23,7 @@ def speech_to_text(audio_data_path):
         )
     return {"text": transcript}
 
+# Define the function to extract fields from the transcript
 def extract_fields(transcript):
     prompt = f"""
         You are a medical transcription service provider. Your main task is to extract all relevant fields of text from the transcript: {transcript}
@@ -42,6 +46,7 @@ def extract_fields(transcript):
     )
     return response.choices[0].message.content
 
+# Define the '/transcribe' route
 @app.route("/transcribe", methods=["POST"])
 def transcribe():
     if "audio_data" not in request.files:
@@ -52,9 +57,12 @@ def transcribe():
     file_extension = audio_file.filename.split('.')[-1].lower()
     if file_extension not in supported_formats:
         return jsonify({"error": f"Unsupported file format: {file_extension}. Supported formats: {supported_formats}"}), 400
+
+    # Use secure temporary file handling
     with tempfile.NamedTemporaryFile(delete=False, suffix=f".{file_extension}") as temp_audio:
         audio_file.save(temp_audio.name)
         temp_audio_path = temp_audio.name
+
     try:
         transcript_result = speech_to_text(temp_audio_path)
     finally:
@@ -62,6 +70,7 @@ def transcribe():
 
     return jsonify({"transcript": transcript_result.get("text", "")})
 
+# Define the '/extract_fields' route
 @app.route("/extract_fields", methods=["POST"])
 def extract():
     data = request.get_json()
@@ -81,11 +90,11 @@ def extract():
     }
     return jsonify(fields)
 
+# Define the error handler
 @app.errorhandler(Exception)
 def handle_error(e):
     return jsonify({"error": str(e)}), 500
 
-
+# Run the Flask application
 if __name__ == "__main__":
     app.run(debug=True)
-

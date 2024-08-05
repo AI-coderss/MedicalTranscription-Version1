@@ -7,16 +7,17 @@ import { Link } from "react-router-dom";
 import Orb from "./orb";
 import Typing from "./Typing";
 import ThemeSwitch from "./ThemeSwitch";
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 
 function App({ fields, setFields }) {
   const [record, setRecord] = useState(false);
   const [loading, setLoading] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [theme, setTheme] = useState("light");
-  const clickSound = new Audio('/click.wav');
-  const openingSound = new Audio('/opening.wav'); // Create an Audio object for the opening sound
-
+  const clickSound = new Audio("/click.wav");
+  clickSound.volume = 0.2;
+  const openingSound = new Audio("/opening.wav"); // Create an Audio object for the opening sound
+  openingSound.volume = 0.4;
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -100,14 +101,14 @@ function App({ fields, setFields }) {
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(
       function () {
-        console.log('Copying to clipboard was successful!');
-        alert('Copied to clipboard!');
+        console.log("Copying to clipboard was successful!");
+        alert("Copied to clipboard!");
       },
       function (err) {
-        console.error('Could not copy text: ', err);
+        console.error("Could not copy text: ", err);
       }
     );
-  }
+  };
 
   const themeConfig = createTheme({
     palette: {
@@ -141,7 +142,12 @@ function App({ fields, setFields }) {
           <div className="buttons-container">
             <button onClick={handleNewRecording}>New Recording</button>
             <Link to={`/case-analysis/${encodeURIComponent(transcript)}`}>
-              <button disabled={!transcript} onClick={() => openingSound.play()}>Case Analysis</button>
+              <button
+                disabled={!transcript}
+                onClick={() => openingSound.play()}
+              >
+                Case Analysis
+              </button>
             </Link>
           </div>
           <ReactMic
@@ -174,7 +180,10 @@ function App({ fields, setFields }) {
                   value={fields.personalHistory}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.personalHistory)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() => copyToClipboard(fields.personalHistory)}
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
@@ -188,7 +197,10 @@ function App({ fields, setFields }) {
                   value={fields.chiefComplaint}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.chiefComplaint)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() => copyToClipboard(fields.chiefComplaint)}
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
@@ -202,7 +214,10 @@ function App({ fields, setFields }) {
                   value={fields.presentIllness}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.presentIllness)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() => copyToClipboard(fields.presentIllness)}
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
@@ -216,7 +231,10 @@ function App({ fields, setFields }) {
                   value={fields.medicationHistory}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.medicationHistory)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() => copyToClipboard(fields.medicationHistory)}
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
@@ -230,7 +248,10 @@ function App({ fields, setFields }) {
                   value={fields.pastHistory}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.pastHistory)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() => copyToClipboard(fields.pastHistory)}
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
@@ -244,21 +265,31 @@ function App({ fields, setFields }) {
                   value={fields.familyHistory}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.familyHistory)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() => copyToClipboard(fields.familyHistory)}
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
               </div>
             </div>
             <div className="field-container">
-              <label htmlFor="requiredLabTestsAndProcedures">Required Lab Tests and Procedures:</label>
+              <label htmlFor="requiredLabTestsAndProcedures">
+                Required Lab Tests and Procedures:
+              </label>
               <div className="textarea-container">
                 <textarea
                   name="requiredLabTestsAndProcedures"
                   value={fields.requiredLabTestsAndProcedures}
                   onChange={handleFieldChange}
                 />
-                <div className="copy-icon-container" onClick={() => copyToClipboard(fields.requiredLabTestsAndProcedures)}>
+                <div
+                  className="copy-icon-container"
+                  onClick={() =>
+                    copyToClipboard(fields.requiredLabTestsAndProcedures)
+                  }
+                >
                   <span className="copy-label">Copy</span>
                   <i className="fas fa-copy copy-icon"></i>
                 </div>
@@ -272,4 +303,3 @@ function App({ fields, setFields }) {
 }
 
 export default App;
-

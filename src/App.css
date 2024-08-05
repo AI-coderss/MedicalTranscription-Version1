@@ -431,6 +431,11 @@ textarea {
   .fields-section h2 {
     font-size: 18px;
   }
+ .case-analysis-button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
   
  
 }
@@ -804,9 +809,11 @@ textarea {
     display: none;
     font-size: 0.5em;
   }
-   h2{
-  right:20%;
-
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
   }
 }
 

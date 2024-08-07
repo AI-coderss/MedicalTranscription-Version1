@@ -35,7 +35,7 @@
         <div class="orb-container">
           <div class="orb"></div>
         </div>
-        <div class="typing"></div>
+        <div class="sentence"></div>
       </div>
       <div class="main-content">
         <div class="fields-section">
@@ -149,7 +149,49 @@
     // Add event listener to the theme toggle switch
     themeToggle.addEventListener('change', toggleTheme);
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const sentences = [
+    'Leveraging Artificial Intelligence ⌨️',
+    'Achieving more accurate Diagnosis 🩺',
+    'Making Difference to Patients lives 🚑',
+    'Seeking AI second opinion 🤖',
+    'Pioneering in patient Service 👨‍💻',
+  ];
+  
+  let currentIndex = 0;
+  let offset = 0;
+  const sentenceElement = document.querySelector('.sentence');
+  let forwards = true;
+  let skipCount = 0;
+  const skipDelay = 15;
+  const speed = 70;
 
+  const updateSentence = () => {
+    sentenceElement.textContent = sentences[currentIndex].substring(0, offset);
+  };
+
+  const handleAnimation = () => {
+    if (forwards) {
+      if (offset >= sentences[currentIndex].length) {
+        if (++skipCount === skipDelay) {
+          forwards = false;
+          skipCount = 0;
+        }
+      }
+    } else if (offset === 0) {
+      forwards = true;
+      currentIndex = (currentIndex + 1) % sentences.length;
+    }
+
+    if (skipCount === 0) {
+      forwards ? offset++ : offset--;
+    }
+
+    updateSentence();
+  };
+
+  setInterval(handleAnimation, speed);
+});
     </script>
   </body>
 </html>

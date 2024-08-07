@@ -1,120 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Transcription</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-        .main-content {
-            width: 70%;
-        }
-        .sidebar {
-            width: 25%;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #1a73e8;
-            text-align: center;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section label {
-            font-weight: bold;
-        }
-        .section textarea {
-            width: 100%;
-            height: 80px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
-        }
-        .sidebar h2 {
-            font-size: 18px;
-            color: #1a73e8;
-            margin-bottom: 10px;
-        }
-        .button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #1a73e8;
-            color: white;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #155a9a;
-        }
-        .footer {
-            margin-top: 20px;
-            text-align: center;
-            color: #1a73e8;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="main-content">
-            <h1>MEDICAL TRANSCRIPTION</h1>
-            <div class="section">
-                <label>Personal History:</label>
-                <textarea></textarea>
-            </div>
-            <div class="section">
-                <label>Chief Complaint:</label>
-                <textarea></textarea>
-            </div>
-            <div class="section">
-                <label>Present Illness:</label>
-                <textarea></textarea>
-            </div>
-            <div class="section">
-                <label>Medication History:</label>
-                <textarea></textarea>
-            </div>
-            <div class="section">
-                <label>Past History:</label>
-                <textarea></textarea>
-            </div>
-            <div class="section">
-                <label>Family History:</label>
-                <textarea></textarea>
-            </div>
-            <div class="section">
-                <label>Required Lab Tests and Procedures:</label>
-                <textarea></textarea>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="App.css" />
+    <title>Medical Transcription 🗣️</title>
+  </head>
+  <body>
+    <div class="App dark">
+      <div class="title-section">
+        <div class="content">
+          <h2>MEDICAL TRANSCRIPTION 🎙️</h2>
+          <h2>MEDICAL TRANSCRIPTION 🎙️</h2>
         </div>
-        <div class="sidebar">
-            <h2>Medical Voice Transcription</h2>
-            <a href="#" class="button">Start Recording</a>
-            <a href="#" class="button">Stop Recording</a>
-            <a href="#" class="button">New Recording</a>
-            <a href="#" class="button">Case Analysis</a>
-            <div class="footer">
-                Pioneering in patient Service
-            </div>
+      </div>
+      <div class="sidebar">
+        <h1>Medical Voice Transcription</h1>
+        <div class="theme-toggle">
+          <label class="switch">
+            <input type="checkbox" id="themeToggle" />
+            <span class="slider"></span>
+          </label>
         </div>
+        <div class="record-buttons">
+          <button>Start Recording</button>
+          <button>Stop Recording</button>
+        </div>
+        <div class="buttons-container">
+          <button>New Recording</button>
+          <button>Case Analysis</button>
+        </div>
+        <div class="sound-wave"></div>
+        <div class="orb-container">
+          <div class="orb"></div>
+        </div>
+        <div class="typing"></div>
+      </div>
+      <div class="main-content">
+        <div class="fields-section">
+          <div class="field-container">
+            <label for="personalHistory">Personal History:</label>
+            <div class="textarea-container">
+              <textarea name="personalHistory"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="chiefComplaint">Chief Complaint:</label>
+            <div class="textarea-container">
+              <textarea name="chiefComplaint"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="presentIllness">Present Illness:</label>
+            <div class="textarea-container">
+              <textarea name="presentIllness"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="medicationHistory">Medication History:</label>
+            <div class="textarea-container">
+              <textarea name="medicationHistory"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="pastHistory">Past History:</label>
+            <div class="textarea-container">
+              <textarea name="pastHistory"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="familyHistory">Family History:</label>
+            <div class="textarea-container">
+              <textarea name="familyHistory"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="field-container">
+            <label for="requiredLabTestsAndProcedures"
+              >Required Lab Tests and Procedures:</label
+            >
+            <div class="textarea-container">
+              <textarea name="requiredLabTestsAndProcedures"></textarea>
+              <div class="copy-icon-container">
+                <span class="copy-label">Copy</span>
+                <i class="fas fa-copy copy-icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const app = document.querySelector('.App');
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Function to set the theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            app.classList.remove('light');
+            app.classList.add('dark');
+            themeToggle.checked = true;
+        } else {
+            app.classList.remove('dark');
+            app.classList.add('light');
+            themeToggle.checked = false;
+        }
+        localStorage.setItem('theme', theme);
+    }
+    // Function to toggle between light and dark themes
+    function toggleTheme() {
+        const currentTheme = app.classList.contains('light') ? 'light' : 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    }
+
+    // Load the saved theme from localStorage when the page loads
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        setTheme('dark'); // Default theme if no saved theme is found
+    }
+    // Add event listener to the theme toggle switch
+    themeToggle.addEventListener('change', toggleTheme);
+});
+
+    </script>
+  </body>
 </html>

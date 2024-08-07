@@ -62,8 +62,9 @@ def transcribe():
     return jsonify({"transcript": transcript_result.get("text", "")})
 
 @app.route("/extract_fields", methods=["POST"])
-
-
+def extract():
+    data = request.get_json()
+    
 @app.errorhandler(Exception)
 def handle_error(e):
     return jsonify({"error": str(e)}), 500

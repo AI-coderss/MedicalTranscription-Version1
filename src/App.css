@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
 /* Define the root variables for the colors used in the app */
 :root {
   --primary-color: #0074D9;
@@ -13,6 +15,7 @@
   --color: #26d0ce;
   --bgcolor: #010c15;
 }
+
 /* Define the dark theme variables */
 .App.dark {
   --primary-color: #39cccc;
@@ -26,6 +29,7 @@
   --loader-color-1: #39cccc;
   --loader-color-2: #001f3f;
 }
+
 /* Set the box-sizing property for all elements to border-box */
 * {
   box-sizing: border-box;
@@ -36,7 +40,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background:var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
   overflow-x: hidden;
   font-family: Arial, sans-serif;
@@ -62,7 +66,9 @@ flex direction, align items, justify content, overflow-y, and margin */
   overflow-y: auto;
   margin: 18px;
 }
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+
+
 /* Title Section */
 .title-section {
   width: 100%;
@@ -75,14 +81,17 @@ flex direction, align items, justify content, overflow-y, and margin */
   left: 0;
   z-index: 1000;
 }
-.sidebar h1{
+
+.sidebar h1 {
   font-size: large;
 }
+
 .title-section h1 {
   margin: 0;
   color: var(--text-color);
   align-items: center;
-  font-size: 15em; /* Smaller font size */
+  font-size: 15em;
+  /* Smaller font size */
 }
 
 /* Content Section */
@@ -90,7 +99,8 @@ flex direction, align items, justify content, overflow-y, and margin */
   position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 10px; /* Adjusted for fixed title section */
+  margin-top: 10px;
+  /* Adjusted for fixed title section */
 }
 
 .content h2 {
@@ -100,7 +110,7 @@ flex direction, align items, justify content, overflow-y, and margin */
   text-align: center;
   margin-bottom: 60px;
   transform: translate(-50%, -50%);
- 
+
 }
 
 .content h2:nth-child(1) {
@@ -114,34 +124,33 @@ flex direction, align items, justify content, overflow-y, and margin */
 }
 
 @keyframes animate {
+
   0%,
   100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
+    clip-path: polygon(0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
   }
+
   50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
   }
 }
+
 /* Add other necessary styles for your app */
 /* Set the width, padding, background color, color, display, flex direction, align items, and justify content for the sidebar element */
 .sidebar {
@@ -154,8 +163,9 @@ flex direction, align items, justify content, overflow-y, and margin */
   align-items: center;
   justify-content: flex-start;
   margin: 0;
-  
+
 }
+
 /* General button styles */
 button {
   position: relative;
@@ -233,7 +243,7 @@ button:disabled {
 .record-buttons button:hover {
   color: #000;
   background-color: rgb(245, 10, 225);
-  box-shadow: 0 5px 0  rgb(245, 10, 225), 0 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 0 rgb(245, 10, 225), 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Buttons container */
@@ -246,6 +256,7 @@ button:disabled {
   margin: 10px;
   height: 55px;
 }
+
 /* Styling the buttons ----*/
 /* Orb container positioning */
 .orb-container {
@@ -299,10 +310,11 @@ label {
   color: var(--primary-color2);
 }
 
-h2{
+h2 {
   margin: 5px;
   font-size: 20px;
 }
+
 /* Set the width, padding, border, border-radius, and font-size for the input and textarea elements */
 input,
 textarea {
@@ -324,8 +336,9 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
+
 /* Set the height for the stack element inside the loader-container element */
 .loader-container .stack {
   height: 40vmin;
@@ -353,8 +366,9 @@ textarea {
     padding: 8px 16px;
     font-size: 14px;
   }
-  .sidebar h1{
-    font-size:large;
+
+  .sidebar h1 {
+    font-size: large;
   }
 }
 
@@ -367,9 +381,11 @@ textarea {
     width: 100%;
     margin-bottom: 20px;
   }
-  .sidebar h1{
-    font-size:large;
+
+  .sidebar h1 {
+    font-size: large;
   }
+
   .main-content {
     padding: 15px;
   }
@@ -407,9 +423,11 @@ textarea {
   .sound-wave {
     height: 80px;
   }
- .title-section h1{
-  font-size: 45px;
- }
+
+  .title-section h1 {
+    font-size: 45px;
+  }
+
   button {
     margin: 20px;
     padding: 6px 12px;
@@ -431,18 +449,19 @@ textarea {
   .fields-section h2 {
     font-size: 18px;
   }
- .case-analysis-button {
+
+  .case-analysis-button {
     margin: 0 5px;
     padding: 8px 16px;
     font-size: 14px;
   }
-  
- 
+
+
 }
 
 /* Added CSS for the case analysis button */
 .case-analysis-button {
- margin-top: 10px;
+  margin-top: 10px;
 
 }
 
@@ -469,6 +488,7 @@ textarea {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
 .copy-icon-container {
   position: absolute;
   bottom: 0;
@@ -503,7 +523,7 @@ textarea {
 
 .copy-icon-container:hover .copy-label {
   opacity: 1;
-  color:rgb(243, 9, 204);
+  color: rgb(243, 9, 204);
 }
 
 .textarea-container {
@@ -516,71 +536,117 @@ textarea {
   box-sizing: border-box;
 }
 
-.wrapper, .wording {
+.wrapper,
+.wording {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .wrapper {
   height: 50vh;
   flex-direction: column;
 }
+
 .circle {
   background-color: #000;
-	border-radius: 50%;
-	margin: 2px 2px -6px;
-	height: 5px;
-	width: 5px;
+  border-radius: 50%;
+  margin: 2px 2px -6px;
+  height: 5px;
+  width: 5px;
 }
+
 .wording {
   padding-top: 15px;
 }
+
 .letter {
   font-size: 18px;
   animation: jump 1s ease-in-out infinite;
 }
-.letter:nth-of-type(2) { animation-delay: 0.1s; }
-.letter:nth-of-type(3) { animation-delay: 0.2s; }
-.letter:nth-of-type(4) { animation-delay: 0.3s; }
-.letter:nth-of-type(5) { animation-delay: 0.4s; }
-.letter:nth-of-type(6) { animation-delay: 0.5s; }
-.letter:nth-of-type(7) { animation-delay: 0.6s; }
-.letter:nth-of-type(8) { animation-delay: 0.7s; }
-.letter:nth-of-type(9) { animation-delay: 0.8s; }
+
+.letter:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.letter:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+.letter:nth-of-type(4) {
+  animation-delay: 0.3s;
+}
+
+.letter:nth-of-type(5) {
+  animation-delay: 0.4s;
+}
+
+.letter:nth-of-type(6) {
+  animation-delay: 0.5s;
+}
+
+.letter:nth-of-type(7) {
+  animation-delay: 0.6s;
+}
+
+.letter:nth-of-type(8) {
+  animation-delay: 0.7s;
+}
+
+.letter:nth-of-type(9) {
+  animation-delay: 0.8s;
+}
+
 .loader {
   width: 35px;
   height: 80px;
   position: relative;
 }
+
 .loader:after {
   content: "";
   position: absolute;
   inset: 0;
   padding: 3px 5px;
   border-bottom: 4px solid #A7C7CB;
-  background: 
-    linear-gradient(#FCA43C 0 0) bottom no-repeat content-box, 
+  background:
+    linear-gradient(#FCA43C 0 0) bottom no-repeat content-box,
     #DBE1E3;
   mix-blend-mode: darken;
   animation: sip 2.5s infinite linear;
 }
+
 .loader:before {
   content: "";
   position: absolute;
   inset: -18px calc(50% - 2px) 8px;
-  background: #eb6b3e;   
+  background: #eb6b3e;
   transform-origin: bottom;
   transform: rotate(8deg);
 }
+
 @keyframes sip {
- 0%   { background-size: 100% 100%; }
- 100% { background-size: 100% 5%; }
+  0% {
+    background-size: 100% 100%;
+  }
+
+  100% {
+    background-size: 100% 5%;
+  }
 }
 
 @keyframes jump {
-	0%, 100% { transform: translateY(0); }
-	50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
+
 .case-analysis-page {
   max-width: 900px;
   margin: 50px auto;
@@ -603,7 +669,7 @@ textarea {
 }
 
 .case-analysis-content pre {
-  background:white;
+  background: white;
   padding: 15px;
   border: 1px solid #b3d4fc;
   border-radius: 5px;
@@ -641,6 +707,7 @@ textarea {
 .analysis-result strong {
   font-weight: bold;
 }
+
 .analysis-result-container {
   position: relative;
 }
@@ -680,7 +747,8 @@ textarea {
   margin: 0 auto;
   display: grid;
   place-items: center;
-  overflow-x: hidden; /* Hide horizontal scroll bar */
+  overflow-x: hidden;
+  /* Hide horizontal scroll bar */
   overflow-y: hidden;
 }
 
@@ -723,6 +791,7 @@ textarea {
 }
 
 @keyframes lqt {
+
   0%,
   100% {
     background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
@@ -753,6 +822,7 @@ textarea {
 }
 
 @keyframes spinx {
+
   0%,
   49% {
     transform: rotate(0deg);
@@ -770,6 +840,7 @@ textarea {
     background-position: 50% 36px;
   }
 }
+
 /*The Typing Effect Styles*/
 /* App.css */
 
@@ -795,6 +866,7 @@ textarea {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -803,12 +875,14 @@ textarea {
 @media screen and (max-width: 800px) {
   html {
     font-size: 1rem;
-   
+
   }
-   h1{
+
+  h1 {
     display: none;
     font-size: 0.5em;
   }
+
   .content {
     display: flex;
     justify-content: center;
@@ -820,9 +894,10 @@ textarea {
 @media screen and (min-width: 801px) {
   html {
     font-size: 1rem;
-  
+
   }
-  h1{
+
+  h1 {
     font-size: 0.5em;
   }
 }

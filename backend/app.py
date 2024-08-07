@@ -45,8 +45,7 @@ def extract_fields(transcript):
 @app.route("/transcribe", methods=["POST"])
 def transcribe():
     if "audio_data" not in request.files:
-        return jsonify({"error": "No audio file provided"}), 400
-    
+        return jsonify({"error": "No audio file provided"}), 400  
     audio_file = request.files["audio_data"]
     supported_formats = ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']
     file_extension = audio_file.filename.split('.')[-1].lower()

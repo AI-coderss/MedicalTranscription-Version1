@@ -62,23 +62,7 @@ def transcribe():
     return jsonify({"transcript": transcript_result.get("text", "")})
 
 @app.route("/extract_fields", methods=["POST"])
-def extract():
-    data = request.get_json()
-    transcript = data.get("transcript", "")
-    if not transcript:
-        return jsonify({"error": "No transcript provided"}), 400
 
-    fields_result = extract_fields(transcript)
-    fields = {
-        "personalHistory": fields_result.split("**Personal History:**")[1].split("**Chief Complaint:**")[0].strip(),
-        "chiefComplaint": fields_result.split("**Chief Complaint:**")[1].split("**Present Illness:**")[0].strip(),
-        "presentIllness": fields_result.split("**Present Illness:**")[1].split("**Medication History:**")[0].strip(),
-        "medicationHistory": fields_result.split("**Medication History:**")[1].split("**Past History:**")[0].strip(),
-        "pastHistory": fields_result.split("**Past History:**")[1].split("**Family History:**")[0].strip(),
-        "familyHistory": fields_result.split("**Family History:**")[1].split("**Required Lab Tests and Procedures:**")[0].strip(),
-        "requiredLabTestsAndProcedures": fields_result.split("**Required Lab Tests and Procedures:**")[1].strip(),
-    }
-    return jsonify(fields)
 
 @app.errorhandler(Exception)
 def handle_error(e):

@@ -63,7 +63,6 @@ def transcribe():
 
 @app.route("/extract_fields", methods=["POST"])
 
-
 @app.errorhandler(Exception)
 def handle_error(e):
     return jsonify({"error": str(e)}), 500

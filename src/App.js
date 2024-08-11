@@ -4,7 +4,6 @@ import { ReactMic } from "react-mic";
 import Loader from "./Loader";
 import "./App.css";
 import { Link } from "react-router-dom";
-import Orb from "./orb";
 import Typing from "./Typing";
 import ThemeSwitch from "./ThemeSwitch";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
@@ -180,11 +179,6 @@ function App({ fields, setFields }) {
           {loading && (
             <div className="loader-container">
               <Loader />
-            </div>
-          )}
-          {loading && (
-            <div className="orb-container">
-              <Orb />
             </div>
           )}
           <Typing />

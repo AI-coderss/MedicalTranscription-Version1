@@ -8,21 +8,17 @@ import Typing from "./Typing";
 import ThemeSwitch from "./ThemeSwitch";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 
-// Main application component
 function App({ fields, setFields }) {
-  // State hooks for managing recording, loading state, transcript, and theme
   const [record, setRecord] = useState(false);
   const [loading, setLoading] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [theme, setTheme] = useState("light");
 
-  // Audio objects for button sounds
   const clickSound = new Audio("/click.wav");
   clickSound.volume = 0.2;
   const openingSound = new Audio("/opening.wav");
   openingSound.volume = 0.4;
 
-  // Effect hook to set initial theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -30,30 +26,25 @@ function App({ fields, setFields }) {
     }
   }, []);
 
-  // Function to toggle between light and dark themes
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
-  // Function to start audio recording
   const startRecording = () => {
     clickSound.play();
     setRecord(true);
   };
 
-  // Function to stop audio recording
   const stopRecording = () => {
     clickSound.play();
     setRecord(false);
   };
 
-  // Function to handle audio recording stop event
   const onStop = async (recordedBlob) => {
     setLoading(true);
 
-    // Prepare audio file for transcription
     const audioFile = new File([recordedBlob.blob], "temp.wav", {
       type: "audio/wav",
     });
@@ -61,7 +52,6 @@ function App({ fields, setFields }) {
     formData.append("audio_data", audioFile);
 
     try {
-      // Send audio file to server for transcription
       const response = await axios.post(
         "http://localhost:5000/transcribe",
         formData,
@@ -72,11 +62,9 @@ function App({ fields, setFields }) {
         }
       );
 
-      // Update transcript state with response data
       const transcriptText = response.data.transcript;
       setTranscript(transcriptText);
 
-      // Extract fields from the transcript
       const fieldsResponse = await axios.post(
         "http://localhost:5000/extract_fields",
         { transcript: transcriptText }
@@ -89,7 +77,6 @@ function App({ fields, setFields }) {
     }
   };
 
-  // Function to handle changes in input fields
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
     setFields((prevFields) => ({
@@ -98,7 +85,6 @@ function App({ fields, setFields }) {
     }));
   };
 
-  // Function to reset the form for a new recording
   const handleNewRecording = () => {
     openingSound.play();
     setTranscript("");
@@ -113,27 +99,24 @@ function App({ fields, setFields }) {
     });
   };
 
-  // Function to copy text to clipboard
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(
-      function () {
+      () => {
         console.log("Copying to clipboard was successful!");
         alert("Copied to clipboard!");
       },
-      function (err) {
+      (err) => {
         console.error("Could not copy text: ", err);
       }
     );
   };
 
-  // Theme configuration for Material-UI
   const themeConfig = createTheme({
     palette: {
       mode: theme,
     },
   });
 
-  // Render the application UI
   return (
     <ThemeProvider theme={themeConfig}>
       <CssBaseline />
@@ -145,6 +128,7 @@ function App({ fields, setFields }) {
           </div>
         </div>
         <div className="sidebar">
+          <img src="/Logo 1.png" alt="Hospital Logo" className="logo" />
           <h1>Medical Voice Transcription</h1>
           <div className="theme-toggle">
             <ThemeSwitch checked={theme === "dark"} onChange={toggleTheme} />
@@ -185,7 +169,6 @@ function App({ fields, setFields }) {
         </div>
         <div className="main-content">
           <div className="fields-section">
-            {/* Field containers for various medical history sections */}
             <div className="field-container">
               <label htmlFor="personalHistory">Personal History:</label>
               <div className="textarea-container">

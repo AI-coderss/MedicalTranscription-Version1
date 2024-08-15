@@ -1,71 +1,76 @@
-# Getting Started with Create React App
+# Medical Transcription Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a Medical Transcription application consisting of a React frontend and a Python Flask backend. The application provides transcription services and second opinions for doctors using OpenAI APIs.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+1. [Overview](#overview)
+2. [Technologies Used](#technologies-used)
+3. [Installation](#installation)
+   - [Frontend Setup](#frontend-setup)
+   - [Backend Setup](#backend-setup)
+4. [Dockerization](#dockerization)
+5. [Deployment](#deployment)
+6. [Usage](#usage)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The application consists of two parts:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: Built with React.js. It makes two POST requests:
+  - **Transcription Endpoint** (`/transcribe`): Fetches transcripts from audio input.
+  - **Generate Endpoint** (`/generate`): Provides case analysis using the GPT-4 API.
 
-### `npm test`
+- **Backend**: Developed using Flask. It has two primary endpoints:
+  - **`/transcribe`**: Uses OpenAI's Whisper API to transcribe audio to text.
+  - **`/generate`**: Uses OpenAI's GPT-4o API to generate second opinions for doctors.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **Frontend**: React.js
+- **Backend**: Python Flask
+- **APIs**: OpenAI Whisper API, OpenAI GPT-4 API
+- **Containerization**: Docker
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Install the dependencies using npm:
+   ```bash
+   npm install --force   
+  
+## Backend Setup
+1. Navigate to the backend directory:
+bash
+cd backend
+2. Install the required libraries:
+   ```bash
+    pip install -r requirements.txt
+3. Create a .env file in the backend directory and add your OpenAI API key:
+   ```plaintext
+   OPENAI_API_KEY="your_api_key"
 
-### `npm run eject`
+## Dockerization
+To dockerize the application, make sure you have a Dockerfile for both the frontend and backend. You will also need a docker-compose.yml file to manage the containers.
+## Deployment
+You can deploy the containers on a cloud host such as[Render](https://render.com/):
+1. Push your Docker images to a container registry (e.g., Docker Hub).
+2. Follow Live Render's documentation to deploy your containers from the registry.
+## Usage
+1. Start the application using Docker:
+ ```bash
+    docker-compose up
+```
+2. Open your browser and go to http://localhost:3000 to access the frontend.
+Use the application to transcribe audio and generate second opinions.
+## Contributing
+Feel free to open issues or submit pull requests. Contributions are welcome!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details. For more information, check the [OpenAI API documentation](https://platform.openai.com/docs).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-### npm install @mui/material @emotion/react @emotion/styled
-## npm install @mui/icons-material
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

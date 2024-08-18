@@ -4,7 +4,6 @@ import { ReactMic } from "react-mic";
 import Loader from "./Loader";
 import "./App.css";
 import { Link } from "react-router-dom";
-import Typing from "./Typing";
 import ThemeSwitch from "./ThemeSwitch";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 
@@ -165,7 +164,7 @@ function App({ fields, setFields }) {
               <Loader />
             </div>
           )}
-          <Typing />
+
         </div>
         <div className="main-content">
           <div className="fields-section">

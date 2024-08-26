@@ -232,7 +232,7 @@ button:disabled {
 
 /* Record buttons container */
 .record-buttons button {
-  margin: 0  5 10 px;
+  margin: 0  5px 10px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -329,7 +329,7 @@ h1:hover {
 label {
   display: block;
   margin-bottom: 5px;
-  font-weight: 500px;
+  font-weight: 500;
   color: var(--primary-color2);
 }
 
@@ -421,11 +421,7 @@ textarea {
     flex-direction: column;
   
   }
-  button {
-    margin: 40px;
-    padding: 8px 16px;
-    font-size: 14px;
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -438,10 +434,7 @@ textarea {
     padding: 10px;
   }
 
-  button {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
+  
   .fields-section{
     display: flex;
     flex-direction: column;
@@ -464,7 +457,7 @@ textarea {
   }
 
   button {
-    margin: 20px;
+    margin: 10px;
     padding: 6px 12px;
     font-size: 12px;
   }
@@ -478,12 +471,13 @@ textarea {
    button {
     margin: 0 3px;
     height: 35px;
-    padding: 8px 16px;
+    padding: 5px 16px;
     font-size: 14px;
   }
   .case-analysis-button{
-    margin: 5px;
-    width: 185px;
+    margin: 6px;
+    gap: 0.5em;
+    width: 1em;
   }
 
 }
@@ -639,9 +633,7 @@ textarea {
   inset: 0;
   padding: 3px 5px;
   border-bottom: 4px solid #A7C7CB;
-  background:
-    linear-gradient(#FCA43C 0 0) bottom no-repeat content-box,
-    #DBE1E3;
+  background: linear-gradient(to bottom, #FCA43C 0%, #FCA43C 100%) no-repeat content-box, #DBE1E3;
   mix-blend-mode: darken;
   animation: sip 2.5s infinite linear;
 }

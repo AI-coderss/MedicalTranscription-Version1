@@ -12,6 +12,7 @@ function App({ fields, setFields }) {
   const [loading, setLoading] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [theme, setTheme] = useState("light");
+  const [isRecordingDisabled, setIsRecordingDisabled] = useState(false);
 
   const clickSound = new Audio("/click.wav");
   clickSound.volume = 0.2;
@@ -69,6 +70,9 @@ function App({ fields, setFields }) {
         { transcript: transcriptText }
       );
       setFields(fieldsResponse.data);
+
+      // Disable start recording button after transcription is done
+      setIsRecordingDisabled(true);
     } catch (error) {
       console.error("Error during transcription:", error);
     } finally {
@@ -96,6 +100,7 @@ function App({ fields, setFields }) {
       familyHistory: "",
       requiredLabTestsAndProcedures: "",
     });
+    setIsRecordingDisabled(false); // Enable start recording button
   };
 
   const copyToClipboard = (text) => {
@@ -133,7 +138,10 @@ function App({ fields, setFields }) {
             <ThemeSwitch checked={theme === "dark"} onChange={toggleTheme} />
           </div>
           <div className="record-buttons">
-            <button onClick={startRecording} disabled={record}>
+            <button
+              onClick={startRecording}
+              disabled={record || isRecordingDisabled}
+            >
               Start Recording
             </button>
             <button onClick={stopRecording} disabled={!record}>
@@ -164,7 +172,6 @@ function App({ fields, setFields }) {
               <Loader />
             </div>
           )}
-
         </div>
         <div className="main-content">
           <div className="fields-section">

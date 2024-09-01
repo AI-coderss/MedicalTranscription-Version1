@@ -18,7 +18,7 @@ function CaseAnalysis() {
       setLoading(true); // Set loading to true before making the API call
       try {
         const response = await axios.post(
-          "http://localhost:5001/api/generate",
+          `${process.env.BACKEND_API_URL}/api/generate`,
           { input: decodeURIComponent(transcript) }
         );
         console.log("API Response:", response.data);

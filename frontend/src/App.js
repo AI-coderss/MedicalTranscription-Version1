@@ -53,7 +53,7 @@ function App({ fields, setFields }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/transcribe",
+        `${process.env.BACKEND_API_URL}/transcribe`,
         formData,
         {
           headers: {
@@ -66,7 +66,7 @@ function App({ fields, setFields }) {
       setTranscript(transcriptText);
 
       const fieldsResponse = await axios.post(
-        "http://localhost:5000/extract_fields",
+        `${process.env.BACKEND_API_URL}/extract_fields`,
         { transcript: transcriptText }
       );
       setFields(fieldsResponse.data);

@@ -20,8 +20,8 @@ This repository contains a Medical Transcription application consisting of a Rea
 The application consists of two parts:
 
 - **Frontend**: Built with React.js. It makes two POST requests:
-  - **Transcription Endpoint** (`/transcribe`): Fetches transcripts from audio input.
-  - **Generate Endpoint** (`/generate`): Provides case analysis using the GPT-4 API.
+  - **Transcription Endpoint** (`/transcribe`): Fetches transcripts from audio input in (app.py) file.
+  - **Generate Endpoint** (`/generate`): Provides case analysis using the GPT-4 API in (doctor.py) file.
 
 - **Backend**: Developed using Flask. It has two primary endpoints:
   - **`/transcribe`**: Uses OpenAI's Whisper API to transcribe audio to text.

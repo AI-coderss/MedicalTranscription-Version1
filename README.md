@@ -22,10 +22,11 @@ The application consists of two parts:
 - **Frontend**: Built with React.js. It makes two POST requests:
   - **Transcription Endpoint** (`/transcribe`): Fetches transcripts from audio input in (app.py) file.
   - **Generate Endpoint** (`/generate`): Provides case analysis using the GPT-4 API in (doctor.py) file.
-  - **Combined Endpoint** this one exists in the server.py file which combine both REST APIs 
+
 - **Backend**: Developed using Flask. It has two primary endpoints:
   - **`/transcribe`**: Uses OpenAI's Whisper API to transcribe audio to text.
   - **`/generate`**: Uses OpenAI's GPT-4o API to generate second opinions for doctors.
+- **Combined Endpoint** this one exists in the server.py file which combine both REST APIs 
 
 ## Technologies Used
 

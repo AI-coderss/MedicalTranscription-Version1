@@ -10,6 +10,8 @@ COPY frontend/package*.json ./
 # Install dependencies
 RUN npm install --force
 
+ENV REACT_APP_BACKEND_API_URL /api
+
 # Copy the rest of the frontend files, excluding the ignored ones
 COPY frontend/ .
 

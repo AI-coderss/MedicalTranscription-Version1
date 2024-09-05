@@ -66,12 +66,19 @@ You can deploy the containers on a cloud host such as[Render](https://render.com
 5. Update the Front end to call the backend on the webservice link from Render
 
 ## Usage
-1. Start the application using Docker:
- ```bash
-    docker-compose up
-```
-2. Open your browser and go to http://localhost:3000 to access the frontend.
+2. Open your browser and go to https://medicaltranscription-version1.onrender.com/ to access the frontend.
 Use the application to transcribe audio and generate second opinions.
+
+To run the application locally
+1. Run the docker container for backend
+2. Go to front end directory
+3. Install dependecies
+4. Run the react server with
+```
+bash
+npm run dev
+```
+
 ## Contributing
 Feel free to open issues or submit pull requests. Contributions are welcome!
 

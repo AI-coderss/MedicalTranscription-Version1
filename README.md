@@ -75,7 +75,6 @@ To run the application locally
 3. Install dependecies
 4. Run the react server with
 ```
-bash
 npm run dev
 ```
 

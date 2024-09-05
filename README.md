@@ -54,11 +54,17 @@ cd backend
    OPENAI_API_KEY="your_api_key"
 
 ## Dockerization
-To dockerize the application, make sure you have a Dockerfile for both the frontend and backend. You will also need a docker-compose.yml file to manage the containers.
+The backend has been containerized using the Docker file with paramters [Check Docker File](https://github.com/Doctor-Samir-Abbas-Hospital/MedicalTranscription-Version1/blob/dockerize/backend/Dockerfile)
+The container runs the Flask server with Python:3.11 on the Alpine operating system
+
 ## Deployment
 You can deploy the containers on a cloud host such as[Render](https://render.com/):
-1. Push your Docker images to a container registry (e.g., Docker Hub).
-2. Follow Live Render's documentation to deploy your containers from the registry.
+1. Pushed the Docker image to a container registry (e.g., Docker Hub).
+2. Upload and deploy the Docker image on to [Render](https://render.com/) as a web service
+3. Get the webservice link from Render
+4. Upload the front end as a static site on Render
+5. Update the Front end to call the backend on the webservice link from Render
+
 ## Usage
 1. Start the application using Docker:
  ```bash

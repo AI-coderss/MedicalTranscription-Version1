@@ -8,3 +8,4 @@ langchain-openai==0.0.5
 tiktoken==0.5.2
 
 
+werkzeug>=3.0.6 # not directly required, pinned by Snyk to avoid a vulnerability

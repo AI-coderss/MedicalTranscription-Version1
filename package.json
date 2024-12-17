@@ -5,7 +5,7 @@
   "homepage": "/",
   "dependencies": {
     "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/styled": "^11.13.5",
     "@mui/material": "^5.16.6",
     "@react-pdf/renderer": "^3.4.4",
     "@testing-library/jest-dom": "^5.17.0",

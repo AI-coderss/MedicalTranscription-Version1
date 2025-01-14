@@ -11,7 +11,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.2",
+    "axios": "^1.7.9",
     "axios-stream": "^1.0.17",
     "file-saver": "^2.0.5",
     "jspdf": "^2.5.1",
